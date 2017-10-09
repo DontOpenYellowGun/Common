@@ -26,13 +26,12 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':lib_common')
     if (isModule.toBoolean()) {
 //        组件开发模式
         compile project(':lib_common')
     } else {
 //        集成模式
-//        compile project(':module_login')
+        compile project(':module_login')
 //        compile project(':module_main')
     }
 }
