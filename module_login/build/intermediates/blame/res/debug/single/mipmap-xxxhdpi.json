@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher_round.png",
+        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    }
+]
