@@ -1,0 +1,67 @@
+package com.wisdudu.lib_common.base;
+
+import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import com.wisdudu.lib_common.R;
+
+
+/**
+ * 文件描述：
+ * <p>
+ * 作者：   Created by Sven on 2017/7/21 0021.
+ */
+public abstract class BaseActivity extends AppCompatActivity {
+
+    /**
+     * Setup the toolbar.
+     *
+     * @param toolbar   toolbar
+     * @param hideTitle 是否隐藏Title
+     */
+    protected void setupToolBar(Toolbar toolbar, boolean hideTitle) {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeAsUpIndicator(R.mipmap.ic_launcher);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            if (hideTitle) {
+                actionBar.setDisplayShowTitleEnabled(false);
+            }
+        }
+    }
+
+
+    /**
+     * 封装的findViewByID方法
+     */
+    @SuppressWarnings("unchecked")
+    protected <T extends View> T $(@IdRes int id) {
+        return (T) super.findViewById(id);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        BaseApplication.getInstance().addActivity(this);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BaseApplication.getInstance().finishActivity(this);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+}

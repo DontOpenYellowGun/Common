@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    //support
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:support-vector-drawable:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    compile "com.android.support.constraint:constraint-layout:$constraintVersion"
+
+    //rx
+    compile "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    compile "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding:$rxbindingVersion"
+    compile "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermissionsVersion"
+    //    compile "com.hwangjr.rxbus:rxbus:$rootProject.ext.rxbusVersion"
+
+    //http
+    compile "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    //database
+    compile "com.orhanobut:hawk:$hawkVersion"
+
+    //router
+    compile "com.alibaba:arouter-api:$arouterVersion"
+
+    //other
+    compile "com.google.code.gson:gson:$gosnVersion"
+    compile "com.github.bumptech.glide:glide:$glideVersion"
+    compile project(':lib_binding')
+}
