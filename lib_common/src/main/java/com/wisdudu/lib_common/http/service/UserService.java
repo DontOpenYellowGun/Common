@@ -1,6 +1,7 @@
 package com.wisdudu.lib_common.http.service;
 
-import com.sven.lib_common.http.client.RetrofitClient;
+
+import com.wisdudu.lib_common.http.client.RetrofitClient;
 
 /**
  * 未登录之前调用接口地址
