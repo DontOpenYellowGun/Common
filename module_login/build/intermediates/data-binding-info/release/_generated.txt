@@ -1,2 +1,0 @@
-com.wisdudu.module_login.databinding.LoginActivityLoginBinding
-android.databinding.DataBindingComponent
