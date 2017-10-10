@@ -1,8 +1,6 @@
 package com.wisdudu.ehomenew;
 
 
-
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.wisdudu.lib_common.base.BaseApplication;
 
 
@@ -17,6 +15,6 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
     }
+
 }

@@ -31,8 +31,8 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-        initRouter();
         initHawk();
+        initRouter();
     }
 
     private void initRouter() {

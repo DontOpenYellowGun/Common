@@ -8,16 +8,16 @@
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable/abc_ic_clear_material.xml"
     },
     {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/design_bottom_navigation_item_background.xml",
+        "source": "/Users/sven/.android/build-cache/0720c3b4cfb3428548403911fef0462de974cbd0/output/res/drawable/design_bottom_navigation_item_background.xml"
+    },
+    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable/abc_item_background_holo_dark.xml"
-    },
-    {
-        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/design_bottom_navigation_item_background.xml",
-        "source": "/Users/sven/.android/build-cache/0720c3b4cfb3428548403911fef0462de974cbd0/output/res/drawable/design_bottom_navigation_item_background.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
@@ -108,16 +108,16 @@
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/design_password_eye.xml",
+        "source": "/Users/sven/.android/build-cache/0720c3b4cfb3428548403911fef0462de974cbd0/output/res/drawable/design_password_eye.xml"
+    },
+    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable/notification_bg.xml"
-    },
-    {
-        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/design_password_eye.xml",
-        "source": "/Users/sven/.android/build-cache/0720c3b4cfb3428548403911fef0462de974cbd0/output/res/drawable/design_password_eye.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",

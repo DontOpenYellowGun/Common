@@ -32,6 +32,6 @@ dependencies {
     } else {
 //        集成模式
         compile project(':module_login')
-//        compile project(':module_main')
+        compile project(':module_main')
     }
 }

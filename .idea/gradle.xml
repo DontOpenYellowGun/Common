@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/lib_binding" />
             <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/module_login" />
+            <option value="$PROJECT_DIR$/module_main" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

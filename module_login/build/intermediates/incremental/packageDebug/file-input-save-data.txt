@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Oct 09 15:31:46 CST 2017
+#Mon Oct 09 16:03:01 CST 2017
 210.set=ANDROID_RESOURCE
 282.file=/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/resources-debug.ap_/res/layout-v11/notification_template_big_media_narrow_custom.xml
 14.set=ANDROID_RESOURCE
