@@ -6,11 +6,12 @@
         android:name="debug.DebugApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/module_name"
+        android:label="@string/main_module_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:label="@string/main_title_activity_main"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

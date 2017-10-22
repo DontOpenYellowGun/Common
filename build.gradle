@@ -39,6 +39,7 @@ ext {
     rxbusVersion = '2.0.0'
     rxbindingVersion = '2.0.0'
     rxpermissionsVersion = '0.9.4@aar'
+    rxlifecycleVersion = '2.1.0'
 
     retrofit2Version = '2.3.0'
     okhttpVersion = '3.9.0'
@@ -48,6 +49,6 @@ ext {
 
     gosnVersion = '2.8.2'
     glideVersion = '4.1.1'
-
     hawkVersion = '2.0.1'
+    statusVersion = '1.4.0'
 }

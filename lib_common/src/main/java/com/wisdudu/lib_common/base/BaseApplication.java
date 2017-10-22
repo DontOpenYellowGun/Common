@@ -1,13 +1,11 @@
 package com.wisdudu.lib_common.base;
 
-import android.app.Activity;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.NoEncryption;
-
-import java.util.Stack;
+import com.wisdudu.lib_common.BuildConfig;
 
 /**
  * 文件描述：
@@ -21,8 +19,6 @@ public class BaseApplication extends Application {
 
     private static BaseApplication sInstance;
 
-    private Stack<Activity> activityStack;
-
     public static BaseApplication getInstance() {
         return sInstance;
     }
@@ -31,14 +27,8 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-        initHawk();
         initRouter();
-    }
-
-    private void initRouter() {
-        ARouter.openDebug();
-        ARouter.openLog();
-        ARouter.init(this);
+        initHawk();
     }
 
     private void initHawk() {
@@ -47,17 +37,11 @@ public class BaseApplication extends Application {
                 .build();
     }
 
-    public void addActivity(Activity activity) {
-        if (activityStack == null) {
-            activityStack = new Stack<>();
+    private void initRouter() {
+        if (BuildConfig.DEBUG) {
+            ARouter.openDebug();
+            ARouter.openLog();
         }
-        activityStack.add(activity);
-    }
-
-    public void finishActivity(Activity activity) {
-        if (activity != null) {
-            activityStack.remove(activity);
-            activity.finish();
-        }
+        ARouter.init(this);
     }
 }

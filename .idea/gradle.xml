@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_binding" />
             <option value="$PROJECT_DIR$/lib_common" />
+            <option value="$PROJECT_DIR$/lib_fragmentation" />
             <option value="$PROJECT_DIR$/module_login" />
             <option value="$PROJECT_DIR$/module_main" />
           </set>

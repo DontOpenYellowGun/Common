@@ -1,14 +1,16 @@
-package com.wisdudu.module_login.view;
+package com.wisdudu.module_login.viewmodel;
 
 import android.databinding.ObservableField;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.wisdudu.lib_common.base.BaseActivity;
+import com.wisdudu.lib_common.base.BaseFragment;
 import com.wisdudu.lib_common.http.UserRemoteDataSource;
 import com.wisdudu.lib_common.http.client.subscribers.Abs;
 import com.wisdudu.lib_common.http.subscriber.HttpSubscriber;
 import com.wisdudu.module_login.databinding.LoginActivityLoginBinding;
+import com.wisdudu.module_login.databinding.LoginFragmentLoginBinding;
 
 
 import io.reactivex.annotations.NonNull;
@@ -27,7 +29,7 @@ public class LoginViewModel {
     //</editor-fold>
 
     //<editor-fold desc="基类对象    BaseActivity">
-    private BaseActivity mActivity;
+    private BaseFragment mBaseFragment;
     //</editor-fold>
 
     //<editor-fold desc="数据模型    Items">
@@ -47,7 +49,7 @@ public class LoginViewModel {
     //</editor-fold>
 
     //<editor-fold desc="视图风格    ViewStyle">
-    private LoginActivityLoginBinding mBinding;
+    private LoginFragmentLoginBinding mBinding;
 
     public final ViewStyle viewStyle = new ViewStyle();
 
@@ -57,8 +59,8 @@ public class LoginViewModel {
     //</editor-fold>
 
     //<editor-fold desc="构造方法    Construction">
-    public LoginViewModel(BaseActivity activity, LoginActivityLoginBinding mBinding) {
-        this.mActivity = activity;
+    public LoginViewModel(BaseFragment baseFragment, LoginFragmentLoginBinding mBinding) {
+        this.mBaseFragment = baseFragment;
         this.mBinding = mBinding;
     }
     //</editor-fold>

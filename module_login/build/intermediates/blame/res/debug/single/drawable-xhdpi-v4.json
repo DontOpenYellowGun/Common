@@ -96,6 +96,10 @@
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_keyboard_arrow_left_white_24dp.png",
+        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_common/build/intermediates/bundles/default/res/drawable-xhdpi-v4/ic_keyboard_arrow_left_white_24dp.png"
+    },
+    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -158,6 +162,10 @@
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_more_vert_white_24dp.png",
+        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_common/build/intermediates/bundles/default/res/drawable-xhdpi-v4/ic_more_vert_white_24dp.png"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png",

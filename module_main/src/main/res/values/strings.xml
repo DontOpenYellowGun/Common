@@ -1,3 +1,15 @@
 <resources>
-    <string name="module_name">Module_Main</string>
+    <string name="main_module_name">Module_Main</string>
+    <string name="main_title_activity_main">MainActivity</string>
+
+    <string name="main_title_section1">Section 1</string>
+    <string name="main_title_section2">Section 2</string>
+    <string name="main_title_section3">Section 3</string>
+
+    <string name="main_navigation_drawer_open">Open navigation drawer</string>
+    <string name="main_navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="main_action_example">Example action</string>
+
+    <string name="main_action_settings">Settings</string>
 </resources>

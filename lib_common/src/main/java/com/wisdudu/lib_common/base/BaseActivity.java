@@ -1,13 +1,13 @@
 package com.wisdudu.lib_common.base;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
+import com.jaeger.library.StatusBarUtil;
 import com.wisdudu.lib_common.R;
+
+import me.yokeyword.fragmentation.SupportActivity;
 
 
 /**
@@ -15,53 +15,20 @@ import com.wisdudu.lib_common.R;
  * <p>
  * 作者：   Created by Sven on 2017/7/21 0021.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends SupportActivity {
 
-    /**
-     * Setup the toolbar.
-     *
-     * @param toolbar   toolbar
-     * @param hideTitle 是否隐藏Title
-     */
-    protected void setupToolBar(Toolbar toolbar, boolean hideTitle) {
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setHomeAsUpIndicator(R.mipmap.ic_launcher);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-            if (hideTitle) {
-                actionBar.setDisplayShowTitleEnabled(false);
-            }
-        }
-    }
-
-
-    /**
-     * 封装的findViewByID方法
-     */
-    @SuppressWarnings("unchecked")
-    protected <T extends View> T $(@IdRes int id) {
-        return (T) super.findViewById(id);
-    }
+    protected View mRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BaseApplication.getInstance().addActivity(this);
+        mRootView = initBinding();
+        setStatusBarColor();
     }
 
+    protected abstract View initBinding();
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        BaseApplication.getInstance().finishActivity(this);
+    protected void setStatusBarColor() {
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary));
     }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
-
 }

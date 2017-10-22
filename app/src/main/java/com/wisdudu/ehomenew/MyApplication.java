@@ -5,7 +5,7 @@ import com.wisdudu.lib_common.base.BaseApplication;
 
 
 /**
- * 文件描述：添加好友
+ * 文件描述：
  * <p>
  * 作者：   Created by Sven on 2017/7/21 0021.
  */
@@ -16,5 +16,4 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
     }
-
 }
