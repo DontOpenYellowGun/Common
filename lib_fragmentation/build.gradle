@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+}
+
+dependencies {
+    compile("com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycleVersion") {
+        exclude module: 'rxjava'
+        exclude module: 'rxandroid'
+    }
+    compile "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    compile "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+}
