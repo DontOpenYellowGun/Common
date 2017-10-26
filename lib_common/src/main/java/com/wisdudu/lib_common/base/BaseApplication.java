@@ -1,11 +1,15 @@
 package com.wisdudu.lib_common.base;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.NoEncryption;
 import com.wisdudu.lib_common.BuildConfig;
+
+import me.yokeyword.fragmentation.Fragmentation;
+import me.yokeyword.fragmentation.helper.ExceptionHandler;
 
 /**
  * 文件描述：
@@ -16,6 +20,8 @@ import com.wisdudu.lib_common.BuildConfig;
  * 作者：   Created by Sven on 2017/7/21 0021.
  */
 public class BaseApplication extends Application {
+
+    private static final String TAG = "BaseApplication";
 
     private static BaseApplication sInstance;
 
@@ -38,6 +44,7 @@ public class BaseApplication extends Application {
     }
 
     private void initRouter() {
+        Log.d(TAG, "initRouter() called"+BuildConfig.DEBUG);
         if (BuildConfig.DEBUG) {
             ARouter.openDebug();
             ARouter.openLog();

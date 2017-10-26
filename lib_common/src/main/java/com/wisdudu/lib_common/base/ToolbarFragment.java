@@ -2,6 +2,7 @@ package com.wisdudu.lib_common.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -33,10 +34,11 @@ public abstract class ToolbarFragment extends BaseFragment {
         mBuilder = configToolbar();
         mToolBar = mRootView.findViewById(R.id.toolbar);
         if (mToolBar != null) {
+            mToolBar.setPadding(0, (int) getResources().getDimension(R.dimen.main_statusbar_view_height), 0, 0);
             TextView mTitle = mRootView.findViewById(R.id.title_textview);
             mTitle.setText(mBuilder.title == null ? "" : mBuilder.title);
             if (mBuilder.isShowLeftButton) {
-                mToolBar.setNavigationIcon(mBuilder.leftButtonRes == 0 ? R.drawable.ic_keyboard_arrow_left_white_24dp : mBuilder.leftButtonRes);
+                mToolBar.setNavigationIcon(mBuilder.leftButtonRes == 0 ? R.drawable.ic_arrow_back_white_24dp : mBuilder.leftButtonRes);
                 mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

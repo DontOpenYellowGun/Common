@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
  * 文件描述：
@@ -26,4 +28,10 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     protected abstract View initBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+
+
+    @Override
+    protected FragmentAnimator onCreateFragmentAnimator() {
+        return new DefaultVerticalAnimator();
+    }
 }

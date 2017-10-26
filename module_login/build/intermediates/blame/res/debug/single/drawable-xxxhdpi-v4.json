@@ -12,6 +12,10 @@
         "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_common/build/intermediates/bundles/default/res/drawable-xxxhdpi-v4/ic_more_vert_white_24dp.png"
     },
     {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_arrow_back_white_24dp.png",
+        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_common/build/intermediates/bundles/default/res/drawable-xxxhdpi-v4/ic_arrow_back_white_24dp.png"
+    },
+    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },

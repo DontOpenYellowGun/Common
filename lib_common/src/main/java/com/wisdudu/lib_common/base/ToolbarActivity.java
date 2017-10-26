@@ -113,11 +113,11 @@ public abstract class ToolbarActivity extends BaseActivity {
             return this;
         }
 
-        interface LeftButtonClickListener {
+        public interface LeftButtonClickListener {
             void onClick(View view);
         }
 
-        interface RightMenuClickListener {
+        public interface RightMenuClickListener {
             void onClick(MenuItem item);
         }
     }

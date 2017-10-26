@@ -3,12 +3,18 @@ package com.wisdudu.module_login.view;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.orhanobut.hawk.Hawk;
 import com.wisdudu.lib_common.base.BaseFragment;
 import com.wisdudu.module_login.R;
+import com.wisdudu.module_login.constants.Constants;
+import com.wisdudu.module_login.constants.LoginState;
 import com.wisdudu.module_login.databinding.LoginFragmentSplashBinding;
 
 import java.util.concurrent.TimeUnit;
@@ -24,7 +30,7 @@ import io.reactivex.schedulers.Schedulers;
  * <p>
  * 作者：   Created by sven on 2017/10/22.
  */
-
+@Route(path = "/login/SplashFragment")
 public class SplashFragment extends BaseFragment {
 
     private LoginFragmentSplashBinding mBinding;
@@ -50,14 +56,24 @@ public class SplashFragment extends BaseFragment {
     }
 
     private void toNextPage() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
+        Observable.timer(3000, TimeUnit.MILLISECONDS)
                 .lastElement()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(@NonNull Long aLong) throws Exception {
-                        startWithPop(GuideFragment.newInstance());
+                        Boolean isLogin = Hawk.get(LoginState.IS_LOGIN, false);
+                        Boolean isIntoGuidePage = Hawk.get(Constants.IS_INTO_GUIDE_PAGE, false);
+                        if (isLogin) {
+                            startWithPop("/main/MainFragment");
+                        } else {
+                            if (isIntoGuidePage) {
+                                startWithPop("/login/LoginFragment");
+                            } else {
+                                startWithPop("/login/GuideFragment");
+                            }
+                        }
                     }
                 });
     }

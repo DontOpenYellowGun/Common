@@ -39,7 +39,7 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/sven/.andr
 	android:icon
 		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:8:9-43
 	android:theme
-		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:11:9-40
+		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:11:9-51
 	android:name
 		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:6:9-46
 activity#com.wisdudu.module_login.view.LauncherActivity

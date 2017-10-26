@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="login_guide_img">
+        <item>@drawable/bg_guide_1</item>
+        <item>@drawable/bg_guide_2</item>
+        <item>@drawable/bg_guide_3</item>
+        <item>@drawable/bg_guide_4</item>
+    </string-array>
+</resources>

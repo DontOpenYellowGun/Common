@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.lang.annotation.Retention;
@@ -471,9 +472,11 @@ public class SupportFragment extends RxFragment implements ISupportFragment {
             mIMM.hideSoftInputFromWindow(getView().getWindowToken(), 0);
         }
     }
+
     public SupportActivity get_mActivity() {
         return _mActivity;
     }
+
     /**
      * 显示软键盘,调用该方法后,会在onPause时自动隐藏软键盘
      */
@@ -576,9 +579,39 @@ public class SupportFragment extends RxFragment implements ISupportFragment {
         start(toFragment, STANDARD);
     }
 
+    /**
+     * 启动目标Fragment
+     *
+     * @param fragmentPath 目标Fragment的路由路径
+     */
+    public void start(String fragmentPath) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        start(toFragment, STANDARD);
+    }
+
     @Override
     public void start(final SupportFragment toFragment, @LaunchMode final int launchMode) {
         mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, 0, launchMode, FragmentationDelegate.TYPE_ADD);
+    }
+
+    /**
+     * 启动目标Fragment
+     *
+     * @param fragmentPath 目标Fragment的路由路径
+     */
+    public void start(String fragmentPath, @LaunchMode final int launchMode) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, 0, launchMode, FragmentationDelegate.TYPE_ADD);
+    }
+
+    public void start(String fragmentPath, Bundle arg, @LaunchMode final int launchMode) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        if (toFragment != null) {
+            toFragment.setArguments(arg);
+            mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, 0, launchMode, FragmentationDelegate.TYPE_ADD);
+        } else {
+            throw new RuntimeException("can't find your toFragment,please check out your router path!");
+        }
     }
 
     @Override
@@ -586,14 +619,58 @@ public class SupportFragment extends RxFragment implements ISupportFragment {
         mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, requestCode, STANDARD, FragmentationDelegate.TYPE_ADD_RESULT);
     }
 
+    public void startForResult(String fragmentPath, int requestCode) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, requestCode, STANDARD, FragmentationDelegate.TYPE_ADD_RESULT);
+    }
+
+    public void startForResult(String fragmentPath, Bundle arg, int requestCode) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        if (toFragment != null) {
+            toFragment.setArguments(arg);
+            mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, requestCode, STANDARD, FragmentationDelegate.TYPE_ADD_RESULT);
+        } else {
+            throw new RuntimeException("can't find your toFragment,please check out your router path!");
+        }
+    }
+
     @Override
     public void startWithPop(SupportFragment toFragment) {
         mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, 0, STANDARD, FragmentationDelegate.TYPE_ADD_WITH_POP);
     }
 
+    public void startWithPop(String fragmentPath) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        if (toFragment != null) {
+            mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, 0, STANDARD, FragmentationDelegate.TYPE_ADD_WITH_POP);
+        } else {
+            throw new RuntimeException("can't find your toFragment,please check out your router path!");
+        }
+    }
+
+    public void startWithPop(String fragmentPath, Bundle arg) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        if (toFragment != null) {
+            toFragment.setArguments(arg);
+            mFragmentationDelegate.dispatchStartTransaction(getFragmentManager(), this, toFragment, 0, STANDARD, FragmentationDelegate.TYPE_ADD_WITH_POP);
+        } else {
+            throw new RuntimeException("can't find your toFragment,please check out your router path!");
+        }
+    }
+
     @Override
     public void replaceFragment(SupportFragment toFragment, boolean addToBack) {
         mFragmentationDelegate.replaceTransaction(this, toFragment, addToBack);
+    }
+
+    public void replaceFragment(String fragmentPath, boolean addToBack) {
+        SupportFragment toFragment = (SupportFragment) ARouter.getInstance().build(fragmentPath).navigation();
+        if (toFragment != null) {
+            mFragmentationDelegate.replaceTransaction(this, toFragment, addToBack);
+        } else {
+            throw new RuntimeException("can't find your toFragment,please check out your router path!");
+        }
+
     }
 
     /**
@@ -652,7 +729,7 @@ public class SupportFragment extends RxFragment implements ISupportFragment {
      * 出栈
      */
     @Override
-    public  void pop() {
+    public void pop() {
         mFragmentationDelegate.back(getFragmentManager());
     }
 
@@ -667,8 +744,8 @@ public class SupportFragment extends RxFragment implements ISupportFragment {
     /**
      * 出栈到目标fragment
      *
-     * @param targetFragmentClass 目标fragment
-     * @param includeTargetFragment   是否包含该fragment
+     * @param targetFragmentClass   目标fragment
+     * @param includeTargetFragment 是否包含该fragment
      */
     @Override
     public void popTo(Class<?> targetFragmentClass, boolean includeTargetFragment) {

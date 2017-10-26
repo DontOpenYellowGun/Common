@@ -29,6 +29,6 @@ public abstract class BaseActivity extends SupportActivity {
     protected abstract View initBinding();
 
     protected void setStatusBarColor() {
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary));
+        StatusBarUtil.setTranslucentForImageViewInFragment(this, 0, null);
     }
 }

@@ -38,9 +38,6 @@ dependencies {
     //database
     compile "com.orhanobut:hawk:$hawkVersion"
 
-    //router
-    compile "com.alibaba:arouter-api:$arouterVersion"
-
     //other
     compile "com.google.code.gson:gson:$gosnVersion"
     compile "com.github.bumptech.glide:glide:$glideVersion"

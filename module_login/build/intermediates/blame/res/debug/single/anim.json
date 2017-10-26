@@ -4,12 +4,12 @@
         "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/h_fragment_exit.xml",
-        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/h_fragment_exit.xml"
-    },
-    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/h_fragment_pop_exit.xml",
         "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/h_fragment_pop_exit.xml"
+    },
+    {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/h_fragment_exit.xml",
+        "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/h_fragment_exit.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
@@ -20,12 +20,12 @@
         "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/h_fragment_enter.xml"
     },
     {
-        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/anim/abc_popup_exit.xml"
-    },
-    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/v_fragment_enter.xml",
         "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/v_fragment_enter.xml"
+    },
+    {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/anim/abc_popup_exit.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/h_fragment_pop_enter.xml",
@@ -72,12 +72,12 @@
         "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/no_anim.xml"
     },
     {
-        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/anim/abc_fade_in.xml"
-    },
-    {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/v_fragment_pop_exit.xml",
         "source": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/res/anim/v_fragment_pop_exit.xml"
+    },
+    {
+        "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/res/anim/abc_fade_in.xml"
     },
     {
         "merged": "/Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
