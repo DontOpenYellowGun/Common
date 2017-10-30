@@ -9,7 +9,7 @@
         android:label="@string/main_module_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="debug.DebugActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,5 +17,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

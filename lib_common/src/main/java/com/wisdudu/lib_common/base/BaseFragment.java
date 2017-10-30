@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
@@ -32,6 +34,6 @@ public abstract class BaseFragment extends SupportFragment {
 
     @Override
     protected FragmentAnimator onCreateFragmentAnimator() {
-        return new DefaultVerticalAnimator();
+        return new DefaultNoAnimator();
     }
 }

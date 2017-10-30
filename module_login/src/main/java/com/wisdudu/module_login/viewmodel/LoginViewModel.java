@@ -1,23 +1,15 @@
 package com.wisdudu.module_login.viewmodel;
 
 import android.databinding.ObservableField;
-import android.support.v4.app.Fragment;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.kelin.mvvmlight.command.ReplyCommand;
-import com.orhanobut.hawk.Hawk;
+
 import com.wisdudu.lib_common.base.BaseActivity;
 import com.wisdudu.lib_common.base.BaseFragment;
-import com.wisdudu.lib_common.http.UserRemoteDataSource;
-import com.wisdudu.lib_common.http.client.subscribers.Abs;
-import com.wisdudu.lib_common.http.subscriber.HttpSubscriber;
-import com.wisdudu.module_login.constants.LoginState;
-import com.wisdudu.module_login.databinding.LoginActivityLoginBinding;
+
 import com.wisdudu.module_login.databinding.LoginFragmentLoginBinding;
-import com.wisdudu.module_login.view.LoginFragment;
 
-
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
 
 /**
@@ -82,7 +74,8 @@ public class LoginViewModel {
 //                        mBaseFragment.startWithPop("/main/MainFragment");
 //                    }
 //                });
-        mBaseFragment.startWithPop("/main/MainFragment");
+        ARouter.getInstance().build("/main/MainActivity").navigation();
+        mBaseFragment.getActivity().finish();
     }
     //</editor-fold>
 }

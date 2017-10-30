@@ -1,11 +1,9 @@
 package com.wisdudu.lib_common.base;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.jaeger.library.StatusBarUtil;
-import com.wisdudu.lib_common.R;
 
 import me.yokeyword.fragmentation.SupportActivity;
 

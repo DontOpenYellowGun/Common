@@ -1,6 +1,4 @@
-<manifest package="me.yokeyword.fragmentation"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="me.yokeyword.fragmentation">
 
-    <application/>
-
+    <application />
 </manifest>

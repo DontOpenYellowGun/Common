@@ -3,9 +3,6 @@
     package="com.wisdudu.module_main">
 
     <application android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/main_title_activity_main" />
+        <activity android:name=".MainActivity" />
     </application>
-
 </manifest>

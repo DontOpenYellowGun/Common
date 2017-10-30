@@ -20,7 +20,7 @@ MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/sven/.android/build-
 MERGED from [com.android.support:design:26.0.0-alpha1] /Users/sven/.android/build-cache/0720c3b4cfb3428548403911fef0462de974cbd0/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:transition:26.0.0-alpha1] /Users/sven/.android/build-cache/6c7cefe33ef9b786e9ce9892fc79c8c1cf78ac5d/output/AndroidManifest.xml:26:5-20
 MERGED from [EhomeNew-2.0:lib_binding:unspecified] /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_binding/build/intermediates/bundles/default/AndroidManifest.xml:11:5-15:19
-MERGED from [EhomeNew-2.0:lib_fragmentation:unspecified] /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/AndroidManifest.xml:11:5-20
+MERGED from [EhomeNew-2.0:lib_fragmentation:unspecified] /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/AndroidManifest.xml:12:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/sven/.android/build-cache/16d76155f8cc072a8545bc6c67d84eee296c9ddb/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/sven/.android/build-cache/ea4f6839e24898b7173f8b31ec5dd529114f7f57/output/AndroidManifest.xml:26:5-20
@@ -39,7 +39,7 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/sven/.andr
 	android:icon
 		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:8:9-43
 	android:theme
-		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:11:9-51
+		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:11:9-40
 	android:name
 		ADDED from /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/module_login/src/main/module/AndroidManifest.xml:6:9-46
 activity#com.wisdudu.module_login.view.LauncherActivity
@@ -66,20 +66,20 @@ MERGED from [com.jakewharton.rxbinding2:rxbinding:2.0.0] /Users/sven/.android/bu
 MERGED from [com.tbruyelle.rxpermissions2:rxpermissions:0.9.4] /Users/sven/.android/build-cache/80784fad90a646be4ba9e5ed0d13215af0a0efba/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.orhanobut:hawk:2.0.1] /Users/sven/.android/build-cache/58b248d8d3aafd0ecb256ddd325b1bc2bac91daf/output/AndroidManifest.xml:6:5-44
 MERGED from [com.facebook.conceal:conceal:1.1.3] /Users/sven/.android/build-cache/775262e3ddae8f7d58cd1582945233156d544692/output/AndroidManifest.xml:12:5-14:41
-MERGED from [com.alibaba:arouter-api:1.2.2] /Users/sven/.android/build-cache/1862324b5f2cc23cc55787d28768f8cfd9d2de7a/output/AndroidManifest.xml:6:5-8:41
 MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/sven/.android/build-cache/eaaf2966bab8c204c28c744d8ac8c259e6391379/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:26.0.0-alpha1] /Users/sven/.android/build-cache/0720c3b4cfb3428548403911fef0462de974cbd0/output/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:26.0.0-alpha1] /Users/sven/.android/build-cache/6c7cefe33ef9b786e9ce9892fc79c8c1cf78ac5d/output/AndroidManifest.xml:20:5-44
 MERGED from [EhomeNew-2.0:lib_binding:unspecified] /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_binding/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/sven/.android/build-cache/d29912dfa089b812ebee349943a4298d0c0ebf94/output/AndroidManifest.xml:20:5-44
 MERGED from [jp.wasabeef:glide-transformations:2.0.1] /Users/sven/.android/build-cache/3ffe03d283110cc80582765de20d9a40a1fdcfdb/output/AndroidManifest.xml:8:5-10:41
-MERGED from [EhomeNew-2.0:lib_fragmentation:unspecified] /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
+MERGED from [EhomeNew-2.0:lib_fragmentation:unspecified] /Users/sven/Desktop/AndroidStudioProjects/EhomeNew-2.0/lib_fragmentation/build/intermediates/bundles/default/AndroidManifest.xml:8:5-10:41
 MERGED from [com.trello.rxlifecycle2:rxlifecycle-components:2.1.0] /Users/sven/.android/build-cache/63d0a221888a9952c0ac292bcf5708022b004157/output/AndroidManifest.xml:17:5-44
 MERGED from [com.trello.rxlifecycle2:rxlifecycle-android:2.1.0] /Users/sven/.android/build-cache/cd7b6affa4589e61f4d4ce86b6e78ee3fa94781a/output/AndroidManifest.xml:17:5-44
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/sven/.android/build-cache/5ad3b4adafe559793441ab7e7055cdab89b2d391/output/AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/sven/.android/build-cache/16d76155f8cc072a8545bc6c67d84eee296c9ddb/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/sven/.android/build-cache/ea4f6839e24898b7173f8b31ec5dd529114f7f57/output/AndroidManifest.xml:20:5-44
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/sven/.android/build-cache/19948dedc2571aac2328e4fec69f0168c7588766/output/AndroidManifest.xml:19:5-43
+MERGED from [com.alibaba:arouter-api:1.2.2] /Users/sven/.android/build-cache/1862324b5f2cc23cc55787d28768f8cfd9d2de7a/output/AndroidManifest.xml:6:5-8:41
 MERGED from [com.android.databinding:adapters:1.3.1] /Users/sven/.android/build-cache/8d3a4424cf2147a78588b2a9de3895f53c5ad051/output/AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.databinding:library:1.3.1] /Users/sven/.android/build-cache/3a145335e71b754c3a5e87464c72390dfc7b4e06/output/AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/sven/.android/build-cache/b085d11a78bd57f582933c7f5b9b83430f05ba20/output/AndroidManifest.xml:21:5-23:54

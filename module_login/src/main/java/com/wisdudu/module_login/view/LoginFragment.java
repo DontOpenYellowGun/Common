@@ -8,12 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wisdudu.lib_common.base.BaseFragment;
 import com.wisdudu.lib_common.base.ToolbarActivity;
 import com.wisdudu.lib_common.base.ToolbarFragment;
-import com.wisdudu.module_login.BR;
 import com.wisdudu.module_login.R;
-import com.wisdudu.module_login.databinding.LoginActivityLoginBinding;
 import com.wisdudu.module_login.databinding.LoginFragmentLoginBinding;
 import com.wisdudu.module_login.viewmodel.LoginViewModel;
 

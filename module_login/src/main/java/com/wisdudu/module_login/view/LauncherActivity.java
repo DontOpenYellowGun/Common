@@ -5,13 +5,9 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.view.View;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.jaeger.library.StatusBarUtil;
-import com.orhanobut.hawk.Hawk;
 import com.wisdudu.lib_common.base.BaseActivity;
 import com.wisdudu.module_login.BR;
 import com.wisdudu.module_login.R;
-import com.wisdudu.module_login.constants.LoginState;
 
 /**
  * 文件描述：启动Activity
@@ -22,7 +18,7 @@ public class LauncherActivity extends BaseActivity {
 
     @Override
     protected View initBinding() {
-        ViewDataBinding mBinding = DataBindingUtil.setContentView(this, R.layout.login_activity_login);
+        ViewDataBinding mBinding = DataBindingUtil.setContentView(this, R.layout.login_activity_launcher);
         mBinding.setVariable(BR.viewModel, this);
         return mBinding.getRoot();
     }

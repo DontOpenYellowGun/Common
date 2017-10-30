@@ -3,18 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <View
-        android:id="@+id/fake_status_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/main_statusbar_view_height"
-        android:background="@color/colorPrimary" />
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/toolbar_elevation"
+        android:elevation="@dimen/default_toolbar_elevation"
         android:minHeight="?attr/actionBarSize"
+        android:paddingTop="@dimen/main_statusbar_view_height"
         android:theme="@style/Theme.ToolBar.Common"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/AppTheme.PopupOverlay"
@@ -23,9 +18,10 @@
         <TextView
             android:id="@+id/title_textview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center"
             android:ellipsize="end"
+            android:gravity="center"
             android:lines="1"
             android:maxWidth="200dp"
             android:textColor="@android:color/white"

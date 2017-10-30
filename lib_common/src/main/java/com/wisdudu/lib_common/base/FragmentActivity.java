@@ -1,6 +1,5 @@
 package com.wisdudu.lib_common.base;
 
-
 import android.os.Bundle;
 
 import com.wisdudu.lib_common.R;
@@ -16,8 +15,6 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 public abstract class FragmentActivity extends SupportActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,4 +23,6 @@ public abstract class FragmentActivity extends SupportActivity {
     }
 
     protected abstract SupportFragment loadFragment();
+
+
 }

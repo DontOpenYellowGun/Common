@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_nav_header"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="220dp"
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
     android:orientation="vertical"
+    android:padding="@dimen/default_padding"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView

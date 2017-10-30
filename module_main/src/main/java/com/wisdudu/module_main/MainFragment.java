@@ -12,7 +12,7 @@ import com.wisdudu.lib_common.base.BaseFragment;
 import com.wisdudu.module_main.databinding.MainFragmentMainBinding;
 
 /**
- * 文件描述：首页
+ * 文件描述：主页
  * <p>
  * 作者：   Created by Sven on 2017/7/21 0021.
  */
@@ -34,5 +34,4 @@ public class MainFragment extends BaseFragment {
         mBinding.setViewModel(this);
         return mBinding.getRoot();
     }
-
 }
