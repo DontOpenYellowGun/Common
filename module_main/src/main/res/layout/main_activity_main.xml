@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.wisdudu.lib_common.base.BaseActivity" />
+            type="com.wisdudu.module_main.MainActivity" />
     </data>
 
     <android.support.v4.widget.DrawerLayout

@@ -1,9 +1,11 @@
 package com.wisdudu.lib_common.base;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
-import com.jaeger.library.StatusBarUtil;
 
 import me.yokeyword.fragmentation.SupportActivity;
 
@@ -21,12 +23,17 @@ public abstract class BaseActivity extends SupportActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRootView = initBinding();
-        setStatusBarColor();
+        translucentStatusBar();
+    }
+
+    private void translucentStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            window.setFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
     }
 
     protected abstract View initBinding();
-
-    protected void setStatusBarColor() {
-        StatusBarUtil.setTranslucentForImageViewInFragment(this, 0, null);
-    }
 }

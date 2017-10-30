@@ -70,7 +70,9 @@ public abstract class ToolbarFragment extends BaseFragment {
     public abstract ToolbarFragment.Builder configToolbar();
 
     @Override
-    protected abstract View initBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+    protected View initBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return null;
+    }
 
     public static class Builder {
 

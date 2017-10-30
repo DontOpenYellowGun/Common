@@ -1,6 +1,9 @@
 package com.wisdudu.lib_common.base;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.wisdudu.lib_common.R;
 
@@ -19,10 +22,19 @@ public abstract class FragmentActivity extends SupportActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
+        translucentStatusBar();
         loadRootFragment(R.id.fragment_container, loadFragment());
     }
 
-    protected abstract SupportFragment loadFragment();
+    private void translucentStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            window.setFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+    }
 
+    protected abstract SupportFragment loadFragment();
 
 }

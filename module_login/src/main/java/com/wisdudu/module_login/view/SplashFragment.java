@@ -3,7 +3,6 @@ package com.wisdudu.module_login.view;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +55,7 @@ public class SplashFragment extends BaseFragment {
     }
 
     private void toNextPage() {
-        Observable.timer(3000, TimeUnit.MILLISECONDS)
+        Observable.timer(1500, TimeUnit.MILLISECONDS)
                 .lastElement()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -66,7 +65,8 @@ public class SplashFragment extends BaseFragment {
                         Boolean isLogin = Hawk.get(LoginState.IS_LOGIN, false);
                         Boolean isIntoGuidePage = Hawk.get(Constants.IS_INTO_GUIDE_PAGE, false);
                         if (isLogin) {
-                            startWithPop("/main/MainFragment");
+                            ARouter.getInstance().build("/main/MainActivity").navigation();
+                            getActivity().finish();
                         } else {
                             if (isIntoGuidePage) {
                                 startWithPop("/login/LoginFragment");

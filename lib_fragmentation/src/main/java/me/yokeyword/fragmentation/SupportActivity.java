@@ -32,9 +32,11 @@ import me.yokeyword.fragmentation.helper.internal.LifecycleHelper;
  * Created by YoKeyword on 16/1/22.
  */
 public class SupportActivity extends RxAppCompatActivity implements ISupport, SensorEventListener {
+
     private FragmentationDelegate mFragmentationDelegate;
 
     private LifecycleHelper mLifecycleHelper;
+
     private ArrayList<FragmentLifecycleCallbacks> mFragmentLifecycleCallbacks;
 
     private FragmentAnimator mFragmentAnimator;

@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wisdudu.lib_common.base.BaseActivity;
 import com.wisdudu.lib_common.util.ToastUtil;
 
@@ -16,15 +17,17 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 
 /**
- * 文件描述：
+ * 文件描述：主页Activity
  * <p>
  * 作者：   Created by sven on 2017/10/30.
  */
 
+@Route(path = "/main/MainActivity")
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
+
     private long TOUCH_TIME = 0;
 
     private DrawerLayout mDrawer;
@@ -39,14 +42,17 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void initView() {
-        MainFragment fragment = findFragment(MainFragment.class);
-        if (fragment == null) {
-            loadRootFragment(R.id.fl_container, MainFragment.newInstance());
-        }
+
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
         mNavigationView.setCheckedItem(R.id.nav_home);
+
+        MainFragment fragment = findFragment(MainFragment.class);
+        if (fragment == null) {
+            loadRootFragment(R.id.fl_container, MainFragment.newInstance());
+        }
+
     }
 
     @Override
@@ -65,7 +71,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 mNavigationView.setCheckedItem(R.id.nav_home);
             }
 
-            if (getFragmentManager().getBackStackEntryCount() > 1) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
                 pop();
             } else {
                 if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {

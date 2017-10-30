@@ -41,7 +41,8 @@ dependencies {
     //other
     compile "com.google.code.gson:gson:$gosnVersion"
     compile "com.github.bumptech.glide:glide:$glideVersion"
-    compile "com.jaeger.statusbarutil:library:$statusVersion"
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanaryVersion"
     compile project(':lib_binding')
     compile project(':lib_fragmentation')
 }

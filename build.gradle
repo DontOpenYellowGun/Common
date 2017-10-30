@@ -50,5 +50,5 @@ ext {
     gosnVersion = '2.8.2'
     glideVersion = '4.1.1'
     hawkVersion = '2.0.1'
-    statusVersion = '1.4.0'
+    leakcanaryVersion='1.5.4'
 }

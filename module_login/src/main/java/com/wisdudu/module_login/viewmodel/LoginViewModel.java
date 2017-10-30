@@ -1,11 +1,11 @@
 package com.wisdudu.module_login.viewmodel;
 
+import android.content.Intent;
 import android.databinding.ObservableField;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.kelin.mvvmlight.command.ReplyCommand;
 
-import com.wisdudu.lib_common.base.BaseActivity;
 import com.wisdudu.lib_common.base.BaseFragment;
 
 import com.wisdudu.module_login.databinding.LoginFragmentLoginBinding;

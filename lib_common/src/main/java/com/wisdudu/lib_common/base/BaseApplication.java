@@ -6,6 +6,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.NoEncryption;
+import com.squareup.leakcanary.LeakCanary;
 import com.wisdudu.lib_common.BuildConfig;
 import com.wisdudu.lib_common.util.ToastUtil;
 
@@ -38,6 +39,14 @@ public class BaseApplication extends Application {
         initHawk();
         initFragmentation();
         initToast();
+        initLeakCanary();
+    }
+
+    private void initLeakCanary() {
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 
     private void initToast() {
@@ -70,7 +79,7 @@ public class BaseApplication extends Application {
     }
 
     private void initRouter() {
-        Log.d(TAG, "initRouter() called"+BuildConfig.DEBUG);
+        Log.d(TAG, "initRouter() called" + BuildConfig.DEBUG);
         if (BuildConfig.DEBUG) {
             ARouter.openDebug();
             ARouter.openLog();

@@ -3,7 +3,7 @@
     <dimen name="main_activity_horizontal_margin">16dp</dimen>
     <dimen name="main_activity_vertical_margin">16dp</dimen>
     <dimen name="main_statusbar_view_height">0dp</dimen>
-    <dimen name="default_toolbar_elevation">6dp</dimen>
+    <dimen name="toolbar_elevation">6dp</dimen>
     <dimen name="default_padding">10dp</dimen>
 
 </resources>

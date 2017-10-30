@@ -7,7 +7,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/default_toolbar_elevation"
+        android:elevation="@dimen/toolbar_elevation"
         android:minHeight="?attr/actionBarSize"
         android:paddingTop="@dimen/main_statusbar_view_height"
         android:theme="@style/Theme.ToolBar.Common"

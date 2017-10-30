@@ -3,7 +3,9 @@
     package="com.wisdudu.module_login">
 
     <application android:theme="@style/AppTheme">
-        <activity android:name=".view.LauncherActivity">
+        <activity
+            android:name=".view.LauncherActivity"
+            android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
