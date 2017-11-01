@@ -36,4 +36,6 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
-!/gradle.properties
+/gradle.properties
+/freeline.py
+/freeline_project_description.json

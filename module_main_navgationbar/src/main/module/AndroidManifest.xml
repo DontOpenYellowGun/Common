@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wisdudu.module_main">
+    package="com.wisdudu.module_main_nav">
 
     <application
         android:name="debug.DebugApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/main_module_name"
+        android:label="@string/main_nav_module_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

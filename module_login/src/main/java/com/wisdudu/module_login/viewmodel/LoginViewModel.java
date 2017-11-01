@@ -1,6 +1,5 @@
 package com.wisdudu.module_login.viewmodel;
 
-import android.content.Intent;
 import android.databinding.ObservableField;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -13,7 +12,7 @@ import com.wisdudu.module_login.databinding.LoginFragmentLoginBinding;
 import io.reactivex.functions.Action;
 
 /**
- * 文件描述：
+ * 文件描述：登录ViewModel
  * <p>
  * 作者：   Created by Sven on 2017/8/18.
  */
@@ -74,7 +73,9 @@ public class LoginViewModel {
 //                        mBaseFragment.startWithPop("/main/MainFragment");
 //                    }
 //                });
-        ARouter.getInstance().build("/main/MainActivity").navigation();
+//        String toActivityRouterPath = "/main/MainActivity";//侧滑风格的主页
+        String toActivityRouterPath = "/main_nav/MainActivity";//底部导航风格的主页
+        ARouter.getInstance().build(toActivityRouterPath).navigation();
         mBaseFragment.getActivity().finish();
     }
     //</editor-fold>

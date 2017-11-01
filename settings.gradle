@@ -1,1 +1,1 @@
-include ':app', ':lib_common', ':lib_binding', ':module_login', ':module_main', ':lib_fragmentation'
+include ':app', ':lib_common', ':lib_binding', ':module_login', ':module_main',':lib_fragmentation', ':module_main_navgationbar'

@@ -1,0 +1,6 @@
+<resources>
+    <string name="main_nav_module_name">Module_Main_Nav</string>
+    <string name="main_nav_press_again_exit">再按一次退出</string>
+    <string name="main_nav_home_page">主页</string>
+    <string name="main_nav_more">更多</string>
+</resources>

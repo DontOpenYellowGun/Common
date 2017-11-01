@@ -5,5 +5,7 @@
     <dimen name="main_statusbar_view_height">0dp</dimen>
     <dimen name="toolbar_elevation">6dp</dimen>
     <dimen name="default_padding">10dp</dimen>
+    <dimen name="default_card_radius">4dp</dimen>
+    <dimen name="default_card_elevation">4dp</dimen>
 
 </resources>

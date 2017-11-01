@@ -11,7 +11,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        resourcePrefix "main_"// 资源加前缀，防止合并冲突
+        resourcePrefix "main_nav_"// 资源加前缀，防止合并冲突
         //ARouter
         javaCompileOptions {
             annotationProcessorOptions {
@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.annotationProcessor"
     compile project(':lib_common')

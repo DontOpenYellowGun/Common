@@ -33,5 +33,6 @@ dependencies {
 //        集成模式
         compile project(':module_login')
         compile project(':module_main')
+        compile project(':module_main_navgationbar')
     }
 }

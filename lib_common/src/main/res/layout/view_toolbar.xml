@@ -13,6 +13,7 @@
         android:theme="@style/Theme.ToolBar.Common"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/AppTheme.PopupOverlay"
+        tools:paddingTop="0dp"
         tools:targetApi="lollipop">
 
         <TextView

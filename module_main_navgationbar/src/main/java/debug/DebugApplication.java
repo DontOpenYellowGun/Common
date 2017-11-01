@@ -1,17 +1,14 @@
-package com.wisdudu.ehomenew;
-
+package debug;
 
 import com.wisdudu.lib_common.base.BaseApplication;
-
 
 /**
  * 文件描述：
  * <p>
- * 作者：   Created by Sven on 2017/7/21 0021.
+ * 作者：   Created by sven on 2017/9/25.
  */
 
-public class MyApplication extends BaseApplication {
-
+public class DebugApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();

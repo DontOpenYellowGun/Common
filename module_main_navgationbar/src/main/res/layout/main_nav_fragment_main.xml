@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wisdudu.module_main_nav.view.MainFragment" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fl_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/main_nav_bar_height" />
+
+        <ImageView
+            android:id="@+id/shadow_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/main_nav_bar_height"
+            android:background="@drawable/actionbar_shadow_up" />
+
+        <com.wisdudu.module_main_nav.view.widget.BottomBar
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_nav_bar_height"
+            android:layout_gravity="bottom"
+            app:itemBackground="?selectableItemBackground"
+            app:menu="@menu/main_nav_menu_main" />
+    </FrameLayout>
+</layout>

@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/lib_fragmentation" />
             <option value="$PROJECT_DIR$/module_login" />
             <option value="$PROJECT_DIR$/module_main" />
+            <option value="$PROJECT_DIR$/module_main_navgationbar" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

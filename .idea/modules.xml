@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/lib_fragmentation/lib_fragmentation.iml" filepath="$PROJECT_DIR$/lib_fragmentation/lib_fragmentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_login/module_login.iml" filepath="$PROJECT_DIR$/module_login/module_login.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_main_navgationbar/module_main_navgationbar.iml" filepath="$PROJECT_DIR$/module_main_navgationbar/module_main_navgationbar.iml" />
     </modules>
   </component>
 </project>
