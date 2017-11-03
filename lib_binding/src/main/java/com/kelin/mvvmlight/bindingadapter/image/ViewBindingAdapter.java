@@ -87,15 +87,26 @@ public final class ViewBindingAdapter {
         Glide.with(imageView.getContext()).load(url).placeholder(placeholderImageRes).into(imageView);
     }
 
-    @BindingAdapter(value = {"url", "placeholderDrawable", "circle"})
+    @BindingAdapter(value = {"url", "placeholderDrawable", "circle"}, requireAll = false)
     public static void setCircleImageUrlWithHolders(final ImageView imageView, String url, Drawable placeholderDrawable, boolean isCircle) {
         if (isCircle) {
-            Glide.with(imageView.getContext()).load(url).bitmapTransform(new CropCircleTransformation(imageView.getContext()))
-                    .placeholder(BitmapUtil.INSTANCE.getCircleRes(imageView.getContext(), placeholderDrawable))
-                    .into(imageView);
-//            Glide.with(imageView.getContext()).load(url).placeholder(android.R.drawable.ic_delete).into(imageView);
+            if (placeholderDrawable == null) {
+                Glide.with(imageView.getContext())
+                        .load(url)
+                        .bitmapTransform(new CropCircleTransformation(imageView.getContext()))
+                        .into(imageView);
+            } else {
+                Glide.with(imageView.getContext()).load(url).bitmapTransform(new CropCircleTransformation(imageView.getContext()))
+                        .placeholder(BitmapUtil.INSTANCE.getCircleRes(imageView.getContext(), placeholderDrawable))
+                        .into(imageView);
+            }
+
         } else {
-            Glide.with(imageView.getContext()).load(url).placeholder(placeholderDrawable).into(imageView);
+            if (placeholderDrawable == null) {
+                Glide.with(imageView.getContext()).load(url).into(imageView);
+            } else {
+                Glide.with(imageView.getContext()).load(url).placeholder(placeholderDrawable).into(imageView);
+            }
         }
     }
 
@@ -123,7 +134,7 @@ public final class ViewBindingAdapter {
     }
 
     @BindingAdapter(value = {"random"})
-    public static void setRandomColor(final ImageView imageView,boolean random) {
+    public static void setRandomColor(final ImageView imageView, boolean random) {
         int num = (int) (Math.random() * 16777216);
         String hex = Integer.toHexString(num);
         GradientDrawable drawable = (GradientDrawable) imageView.getBackground();

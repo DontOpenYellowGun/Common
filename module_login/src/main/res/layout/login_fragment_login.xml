@@ -58,8 +58,12 @@
                     android:hint="请输入手机号"
                     android:inputType="phone"
                     android:lines="1"
+                    android:maxLength="11"
+                    android:paddingLeft="@dimen/default_padding"
+                    android:paddingRight="@dimen/default_padding"
                     android:text="@={viewModel.phone}"
-                    android:textColorHint="@android:color/black" />
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
 
                 <EditText
                     android:id="@+id/login_edittext2"
@@ -68,11 +72,15 @@
                     android:layout_marginTop="8dp"
                     android:background="@color/colorPrimary"
                     android:ems="10"
-                    android:hint=" 请输入密码"
+                    android:hint="请输入密码"
                     android:inputType="textPassword"
                     android:lines="1"
+                    android:maxLength="16"
+                    android:paddingLeft="@dimen/default_padding"
+                    android:paddingRight="@dimen/default_padding"
                     android:text="@={viewModel.password}"
-                    android:textColorHint="@android:color/black" />
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
 
                 <Button
                     android:id="@+id/login_button"

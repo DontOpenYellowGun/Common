@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/lib_binding/lib_binding.iml" filepath="$PROJECT_DIR$/lib_binding/lib_binding.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_fragmentation/lib_fragmentation.iml" filepath="$PROJECT_DIR$/lib_fragmentation/lib_fragmentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_loadinglayout/lib_loadinglayout.iml" filepath="$PROJECT_DIR$/lib_loadinglayout/lib_loadinglayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_refresh/lib_refresh.iml" filepath="$PROJECT_DIR$/lib_refresh/lib_refresh.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_login/module_login.iml" filepath="$PROJECT_DIR$/module_login/module_login.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_main_navgationbar/module_main_navgationbar.iml" filepath="$PROJECT_DIR$/module_main_navgationbar/module_main_navgationbar.iml" />

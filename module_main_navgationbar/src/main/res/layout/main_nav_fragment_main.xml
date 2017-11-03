@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/main_nav_bar_height"
             android:layout_gravity="bottom"
-            app:itemBackground="?selectableItemBackground"
-            app:menu="@menu/main_nav_menu_main" />
+            app:itemBackground="?selectableItemBackground" />
     </FrameLayout>
 </layout>

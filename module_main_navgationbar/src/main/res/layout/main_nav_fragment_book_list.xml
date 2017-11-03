@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.kelin.mvvmlight.collectionadapter.recyclerview.LayoutManagers" />
+
+        <variable
+            name="viewModel"
+            type="com.wisdudu.module_main_nav.viewmodel.BookListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_toolbar" />
+
+        <android.support.v7.widget.RecyclerView
+            style="@style/ThemeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:itemView="@{viewModel.itemView}"
+            app:items="@{viewModel.items}"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            app:itemClickCommand="@{viewModel.itemClickCommand}" />
+
+    </LinearLayout>
+
+</layout>

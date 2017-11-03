@@ -6,6 +6,6 @@
     <dimen name="toolbar_elevation">6dp</dimen>
     <dimen name="default_padding">10dp</dimen>
     <dimen name="default_card_radius">4dp</dimen>
-    <dimen name="default_card_elevation">4dp</dimen>
+    <dimen name="default_card_elevation">2dp</dimen>
 
 </resources>

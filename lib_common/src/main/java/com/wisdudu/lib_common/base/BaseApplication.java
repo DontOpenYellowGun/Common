@@ -1,13 +1,29 @@
 package com.wisdudu.lib_common.base;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.NoEncryption;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreater;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
+import com.scwang.smartrefresh.layout.api.RefreshFooter;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.squareup.leakcanary.LeakCanary;
 import com.wisdudu.lib_common.BuildConfig;
+import com.wisdudu.lib_common.R;
+import com.wisdudu.lib_common.util.DynamicTimeFormat;
 import com.wisdudu.lib_common.util.ToastUtil;
 
 import me.yokeyword.fragmentation.Fragmentation;
@@ -40,6 +56,45 @@ public class BaseApplication extends Application {
         initFragmentation();
         initToast();
         initLeakCanary();
+        initRefresh();
+        initLogger();
+    }
+
+    private void initLogger() {
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(true)  // (Optional) Whether to show thread info or not. Default true
+//                .methodCount(0)         // (Optional) How many method line to show. Default 2
+                .methodOffset(7)        // (Optional) Hides internal method calls up to offset. Default 5
+//                .logStrategy(customLog) // (Optional) Changes the log strategy to print out. Default LogCat
+                .tag("PRETTY_LOGGER")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
+            @Override public boolean isLoggable(int priority, String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
+    }
+
+    private void initRefresh() {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
+            @NonNull
+            @Override
+            public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
+                layout.setPrimaryColorsId(R.color.windowBackground, R.color.colorPrimary);//全局设置主题颜色
+                return new ClassicsHeader(context).setTimeFormat(new DynamicTimeFormat("更新于 %s"));
+            }
+        });
+
+        SmartRefreshLayout.setDefaultRefreshFooterCreater(new DefaultRefreshFooterCreater() {
+            @NonNull
+            @Override
+            public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
+                ClassicsFooter classicsFooter = new ClassicsFooter(context);
+                classicsFooter.setPrimaryColorId(R.color.windowBackground);
+                classicsFooter.setAccentColorId(R.color.colorPrimary);
+                return classicsFooter;
+            }
+        });
     }
 
     private void initLeakCanary() {

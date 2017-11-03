@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.kelin.mvvmlight.collectionadapter.recyclerview.LayoutManagers" />
+
+        <variable
+            name="viewModel"
+            type="com.wisdudu.module_main_nav.viewmodel.MusicListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_toolbar" />
+
+        <com.weavey.loading.lib.LoadingLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:errorStr="@{viewModel.viewStyle.errorMsg}"
+            app:pageBackground="@color/windowBackground"
+            app:pageState="@{viewModel.viewStyle.pageState}"
+            app:reloadCommand="@{viewModel.reloadCommand}">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:loadingMore="@{viewModel.viewStyle.isLoadingMore}"
+                app:onLoadMore="@{viewModel.onLoadMoreCommand}"
+                app:onRefresh="@{viewModel.onRefreshCommand}"
+                app:refreshing="@{viewModel.viewStyle.isRefreshing}">
+
+                <android.support.v7.widget.RecyclerView
+                    style="@style/ThemeRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:itemClickCommand="@{viewModel.itemClickCommand}"
+                    app:itemView="@{viewModel.itemView}"
+                    app:items="@{viewModel.items}"
+                    app:layoutManager="@{LayoutManagers.linear()}"
+                    tools:listitem="@layout/main_nav_item_movie" />
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </com.weavey.loading.lib.LoadingLayout>
+    </LinearLayout>
+</layout>

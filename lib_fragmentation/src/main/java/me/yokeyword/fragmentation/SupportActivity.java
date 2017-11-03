@@ -1,5 +1,6 @@
 package me.yokeyword.fragmentation;
 
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -55,7 +56,7 @@ public class SupportActivity extends RxAppCompatActivity implements ISupport, Se
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mFragmentationDelegate = getFragmentationDelegate();
         mFragmentAnimator = onCreateFragmentAnimator();
         initSensorManager();

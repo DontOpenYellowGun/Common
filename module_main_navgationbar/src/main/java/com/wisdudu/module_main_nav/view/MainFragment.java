@@ -53,11 +53,11 @@ public class MainFragment extends BaseFragment {
     }
 
     private void loadChildFragments() {
-        SupportFragment firstFragment = findChildFragment(TestFragment1.class);
+        SupportFragment firstFragment = findChildFragment(MusicListFragment.class);
         if (firstFragment == null) {
-            mFragments[FIRST] = TestFragment1.newInstance();
-            mFragments[SECOND] = TestFragment2.newInstance();
-            mFragments[THIRD] = TestFragment3.newInstance();
+            mFragments[FIRST] = MusicListFragment.newInstance();
+            mFragments[SECOND] = MovieListFragment.newInstance();
+            mFragments[THIRD] = BookListFragment.newInstance();
 
             loadMultipleRootFragment(R.id.fl_container, FIRST,
                     mFragments[FIRST],
@@ -67,8 +67,8 @@ public class MainFragment extends BaseFragment {
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
             // 这里我们需要拿到mFragments的引用,也可以通过getChildFragmentManager.findFragmentByTag自行进行判断查找(效率更高些),用下面的方法查找更方便些
             mFragments[FIRST] = firstFragment;
-            mFragments[SECOND] = findChildFragment(TestFragment2.class);
-            mFragments[THIRD] = findChildFragment(TestFragment3.class);
+            mFragments[SECOND] = findChildFragment(MovieListFragment.class);
+            mFragments[THIRD] = findChildFragment(BookListFragment.class);
         }
     }
 

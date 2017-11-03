@@ -8,24 +8,78 @@ package com.wisdudu.lib_common.model;
 
 public class User {
 
-    private String phone;
 
-    private String password;
+    /**
+     * uid : 1261
+     * nickname : 姚志鹏
+     * username : 18502345807
+     * qq :
+     * sex : 1
+     * age : 107
+     * faces : http://wisdudu.oss-cn-shenzhen.aliyuncs.com/kt_o_5.jpg
+     */
 
-    public String getPhone() {
-        return phone;
+    private String uid;
+    private String nickname;
+    private String username;
+    private String qq;
+    private int sex;
+    private int age;
+    private String faces;
+
+    public String getUid() {
+        return uid;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
-    public String getPassword() {
-        return password;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getFaces() {
+        return faces;
+    }
+
+    public void setFaces(String faces) {
+        this.faces = faces;
+    }
 }

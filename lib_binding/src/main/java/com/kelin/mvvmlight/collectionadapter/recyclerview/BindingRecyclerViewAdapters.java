@@ -19,8 +19,14 @@ import java.util.List;
 public class BindingRecyclerViewAdapters {
     // RecyclerView
     @SuppressWarnings("unchecked")
-    @BindingAdapter(value = {"itemView", "items", "adapter", "itemIds", "viewHolder", "rec_ItemClickCommand","rec_ItemChildClickCommand"}, requireAll = false)
-    public static <T> void setAdapter(RecyclerView recyclerView, ItemViewArg<T> arg, List<T> items, BindingRecyclerViewAdapterFactory factory, BindingRecyclerViewAdapter.ItemIds<T> itemIds, BindingRecyclerViewAdapter.ViewHolderFactory viewHolderFactory, final ReplyItemCommand<Integer, View> onItemClickCommand, final ReplyItemCommand<Integer, View> onItemChildClickCommand) {
+    @BindingAdapter(value = {"itemView", "items", "adapter", "itemIds", "viewHolder", "itemClickCommand"}, requireAll = false)
+    public static <T> void setAdapter(RecyclerView recyclerView,
+                                      ItemViewArg<T> arg,
+                                      List<T> items,
+                                      BindingRecyclerViewAdapterFactory factory,
+                                      BindingRecyclerViewAdapter.ItemIds<T> itemIds,
+                                      BindingRecyclerViewAdapter.ViewHolderFactory viewHolderFactory,
+                                      final ReplyItemCommand<Integer, View> onItemChildClickCommand) {
         if (arg == null) {
             throw new IllegalArgumentException("itemView must not be null");
         }
@@ -34,42 +40,20 @@ public class BindingRecyclerViewAdapters {
                 adapter.setItems(items);
                 adapter.setItemIds(itemIds);
                 adapter.setViewHolderFactory(viewHolderFactory);
-                if (adapter.getOnItemChildClickListener()==null) {
-                    adapter.setOnItemClickListener(new BindingRecyclerViewAdapter.onItemClickListener() {
-                        @Override
-                        public void onItemClick(int position, View itemView) {
-                            if (onItemClickCommand != null) {
-                                onItemClickCommand.execute(position, itemView);
-                            }
-                        }
-                    });
-                    adapter.setOnItemChildClickListener(new BindingRecyclerViewAdapter.onItemChildClickListener() {
-                        @Override
-                        public void convert(int position, View itemView) {
-                            if (onItemChildClickCommand != null) {
-                                onItemChildClickCommand.execute(position, itemView);
-                            }
+                if (adapter.getOnItemChildClickListener() == null) {
+                    adapter.setOnItemChildClickListener((position, itemView) -> {
+                        if (onItemChildClickCommand != null) {
+                            onItemChildClickCommand.execute(position, itemView);
                         }
                     });
                 }
                 recyclerView.setAdapter(adapter);
             } else {
                 adapter.setItems(items);
-                if (adapter.getOnItemChildClickListener()==null) {
-                    adapter.setOnItemClickListener(new BindingRecyclerViewAdapter.onItemClickListener() {
-                        @Override
-                        public void onItemClick(int position, View itemView) {
-                            if (onItemClickCommand != null) {
-                                onItemClickCommand.execute(position, itemView);
-                            }
-                        }
-                    });
-                    adapter.setOnItemChildClickListener(new BindingRecyclerViewAdapter.onItemChildClickListener() {
-                        @Override
-                        public void convert(int position, View itemView) {
-                            if (onItemChildClickCommand != null) {
-                                onItemChildClickCommand.execute(position, itemView);
-                            }
+                if (adapter.getOnItemChildClickListener() == null) {
+                    adapter.setOnItemChildClickListener((position, itemView) -> {
+                        if (onItemChildClickCommand != null) {
+                            onItemChildClickCommand.execute(position, itemView);
                         }
                     });
                 }

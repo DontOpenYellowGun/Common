@@ -3,6 +3,7 @@ package com.wisdudu.lib_common.http.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.wisdudu.lib_common.constants.Domain;
 import com.wisdudu.lib_common.http.service.UserApi;
 
 import java.lang.reflect.Modifier;
@@ -32,7 +33,7 @@ public enum RetrofitClient {
 
         retrofitBuilder = new Retrofit.Builder()
                 .client(OkClient.INSTANCE.getOkHttpClient())
-                .baseUrl(UserApi.BASE_URL)
+                .baseUrl(Domain.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson));
     }

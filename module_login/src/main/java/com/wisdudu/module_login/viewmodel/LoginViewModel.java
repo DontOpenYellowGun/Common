@@ -1,12 +1,18 @@
 package com.wisdudu.module_login.viewmodel;
 
 import android.databinding.ObservableField;
+import android.support.annotation.NonNull;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.kelin.mvvmlight.command.ReplyCommand;
 
 import com.wisdudu.lib_common.base.BaseFragment;
 
+import com.wisdudu.lib_common.http.UserRemoteDataSource;
+import com.wisdudu.lib_common.http.client.subscribers.HttpSubscriber;
+import com.wisdudu.lib_common.http.client.subscribers.exception.ExceptionHandle;
+import com.wisdudu.lib_common.model.User;
+import com.wisdudu.lib_common.util.ToastUtil;
 import com.wisdudu.module_login.databinding.LoginFragmentLoginBinding;
 
 import io.reactivex.functions.Action;
@@ -62,21 +68,37 @@ public class LoginViewModel {
 
     //<editor-fold desc="接口请求    Api">
     private void login() {
-//        viewStyle.isShowProgress.set(true);
-//        UserRemoteDataSource.INSTANCE
-//                .login(phone.get(), password.get())
-//                .subscribe(new HttpSubscriber<Abs>() {
-//                    @Override
-//                    protected void onSuccess(@NonNull Abs abs) {
-//                        viewStyle.isShowProgress.set(false);
-//                        Hawk.put(LoginState.IS_LOGIN, true);
-//                        mBaseFragment.startWithPop("/main/MainFragment");
-//                    }
-//                });
-//        String toActivityRouterPath = "/main/MainActivity";//侧滑风格的主页
-        String toActivityRouterPath = "/main_nav/MainActivity";//底部导航风格的主页
-        ARouter.getInstance().build(toActivityRouterPath).navigation();
-        mBaseFragment.getActivity().finish();
+
+        if (phone.get().isEmpty() || phone.get().length() != 11) {
+            ToastUtil.INSTANCE.toast("手机号输入有误，请重新输入！");
+            return;
+        }
+        if (password.get().isEmpty()) {
+            ToastUtil.INSTANCE.toast("请输入密码");
+            return;
+        }
+
+        viewStyle.isShowProgress.set(true);
+
+        UserRemoteDataSource.INSTANCE
+                .login(phone.get(), password.get())
+                .compose(mBaseFragment.<User>bindToLifecycle())
+                .subscribe(new HttpSubscriber<User>() {
+                    @Override
+                    protected void onSuccess(@NonNull User user) {
+                        viewStyle.isShowProgress.set(false);
+                        //Hawk.put(LoginState.IS_LOGIN, true);
+                        //String toActivityRouterPath = "/main/MainActivity";//侧滑风格的主页
+                        String toActivityRouterPath = "/main_nav/MainActivity";//底部导航风格的主页
+                        ARouter.getInstance().build(toActivityRouterPath).navigation();
+                        mBaseFragment.getActivity().finish();
+                    }
+
+                    @Override
+                    protected void onError(ExceptionHandle.ResponseThrowable responseThrowable) {
+                        viewStyle.isShowProgress.set(false);
+                    }
+                });
     }
     //</editor-fold>
 }

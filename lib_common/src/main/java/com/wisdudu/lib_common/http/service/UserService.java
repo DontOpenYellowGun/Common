@@ -1,6 +1,7 @@
 package com.wisdudu.lib_common.http.service;
 
 
+import com.wisdudu.lib_common.constants.Domain;
 import com.wisdudu.lib_common.http.client.RetrofitClient;
 
 /**
@@ -17,7 +18,7 @@ public enum UserService {
     UserService() {
         mApi = RetrofitClient.INSTANCE
                 .getRetrofitBuilder()
-                .baseUrl(UserApi.BASE_URL).build()
+                .baseUrl(Domain.BASE_URL).build()
                 .create(UserApi.class);
     }
 
