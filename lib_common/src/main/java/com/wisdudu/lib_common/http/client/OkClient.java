@@ -4,12 +4,14 @@ package com.wisdudu.lib_common.http.client;
 import android.support.annotation.NonNull;
 
 import com.wisdudu.lib_common.BuildConfig;
+import com.wisdudu.lib_common.base.BaseApplication;
 import com.wisdudu.lib_common.util.NetUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.CacheControl;
+import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -35,20 +37,34 @@ public enum OkClient {
         short HTTP_WRITE_TIMEOUT = 10;
 
         okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(getHttpLoggingInterceptor())
-                .addNetworkInterceptor(getNetWorkInterceptor())
-                .addInterceptor(getCacheIntercept())
-                .retryOnConnectionFailure(true)
                 .connectTimeout(HTTP_CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(HTTP_WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(HTTP_READ_TIMEOUT, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .addInterceptor(getHttpLoggingInterceptor())
+                .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+                .cache(configCache())
                 .build();
+    }
+
+    /**
+     * Method:      configCache <br>
+     * Description: 配置缓存 <br>
+     * Creator:     sven <br>
+     * Date:        2017/11/4 下午12:39
+     */
+    @NonNull
+    private Cache configCache() {
+        File httpCacheDirectory = new File(BaseApplication.getInstance().getCacheDir(), "HttpCache");
+        int cacheSize = 10 * 1024 * 1024;
+        return new Cache(httpCacheDirectory, cacheSize);
     }
 
 
     public OkHttpClient getOkHttpClient() {
         return okHttpClient;
     }
+
 
     @NonNull
     private HttpLoggingInterceptor getHttpLoggingInterceptor() {
@@ -57,50 +73,41 @@ public enum OkClient {
         return interceptor;
     }
 
-    /**
-     * 设置返回数据的  Interceptor  判断网络   没网读取缓存
-     */
-    public Interceptor getCacheIntercept() {
-        return new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                if (!NetUtil.INSTANCE.isConnected()) {
-                    request = request.newBuilder()
-                            .cacheControl(CacheControl.FORCE_CACHE)
-                            .build();
-                }
-                return chain.proceed(request);
-            }
-        };
-    }
+    //缓存拦截器，不同接口不同缓存
+//     Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
+//        @Override
+//        public Response intercept(Chain chain) throws IOException {
+//
+//            Request request = chain.request();
+//            Response response = chain.proceed(request);
+//
+//            if (NetworkUtil.getInstance().isConnected()) {
+//                String cacheControl =request.cacheControl().toString();
+//                return response.newBuilder()
+//                        .removeHeader("Pragma")//清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
+//                        .header("Cache-Control", cacheControl)
+//                        .build();
+//            }
+//            return response;
+//        }
+//    };
 
-    /**
-     * 设置连接器  设置缓存
-     */
-    public Interceptor getNetWorkInterceptor() {
-        return new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                Response response = chain.proceed(request);
-                if (NetUtil.INSTANCE.isConnected()) {
-                    int maxAge = 0;
-                    // 有网络时 设置缓存超时时间0个小时
-                    response.newBuilder()
-                            .header("Cache-Control", "public, max-age=" + maxAge)
-                            .removeHeader("Pragma")
-                            .build();
-                } else {
-                    // 无网络时，设置超时为1周
-                    int maxStale = 60 * 60 * 24 * 7;
-                    response.newBuilder()
-                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                            .removeHeader("Pragma")
-                            .build();
-                }
-                return response;
+    //缓存拦截器，统一缓存60s
+    Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+
+            Request request = chain.request();
+            Response response = chain.proceed(request);
+
+            if (NetUtil.INSTANCE.isConnected()) {
+                int maxAge = 60 * 60 * 24 * 2;//缓存失效时间，单位为秒
+                return response.newBuilder()
+                        .removeHeader("Pragma")//清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
+                        .header("Cache-Control", "public ,max-age=" + maxAge)
+                        .build();
             }
-        };
-    }
+            return response;
+        }
+    };
 }

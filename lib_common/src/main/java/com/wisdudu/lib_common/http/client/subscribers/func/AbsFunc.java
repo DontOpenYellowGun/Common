@@ -1,5 +1,7 @@
 package com.wisdudu.lib_common.http.client.subscribers.func;
 
+import com.wisdudu.lib_common.http.client.subscribers.exception.ApiException;
+
 import io.reactivex.functions.Function;
 
 /**
@@ -12,8 +14,8 @@ public class AbsFunc<T> implements Function<Abs<T>, T> {
     @Override
     public T apply(Abs<T> tAbs) throws Exception {
         if (tAbs.getErrCode() != 1) {
-            throw new Exception("jjj");
-        }// TODO: 2017/11/3 后面根据服务器端完善
+            throw new ApiException(tAbs.getMessage());
+        }
         return tAbs.getResult();
     }
 }

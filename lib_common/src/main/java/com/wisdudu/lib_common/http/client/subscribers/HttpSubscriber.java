@@ -1,7 +1,9 @@
 package com.wisdudu.lib_common.http.client.subscribers;
 
 import com.orhanobut.logger.Logger;
+import com.wisdudu.lib_common.http.client.subscribers.exception.ApiException;
 import com.wisdudu.lib_common.http.client.subscribers.exception.ExceptionHandle;
+import com.wisdudu.lib_common.http.client.subscribers.exception.NetException;
 import com.wisdudu.lib_common.util.NetUtil;
 
 import io.reactivex.Observer;
@@ -23,6 +25,11 @@ public abstract class HttpSubscriber<T> implements Observer<T> {
     @Override
     public void onSubscribe(@NonNull Disposable d) {
         disposable = d;
+        if (!NetUtil.INSTANCE.isConnected()) {
+            if (!disposable.isDisposed()) {
+                onError(ExceptionHandle.handleException(new NetException("网络未连接")));
+            }
+        }
     }
 
     @Override

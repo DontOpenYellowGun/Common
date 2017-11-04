@@ -1,6 +1,7 @@
 package com.wisdudu.lib_common.http.client.subscribers.exception;
 
 import com.google.gson.JsonParseException;
+import com.wisdudu.lib_common.util.ToastUtil;
 
 import org.json.JSONException;
 
@@ -66,6 +67,15 @@ public class ExceptionHandle {
             ex = new ResponseThrowable(e, ERROR.SSL_ERROR);
             ex.message = "证书验证失败";
             return ex;
+        } else if (e instanceof ApiException) {
+            ex = new ResponseThrowable(e, ERROR.API_ERROR);
+            ex.message = e.getMessage();
+            ToastUtil.INSTANCE.toast(ex.message);
+            return ex;
+        } else if (e instanceof NetException || e instanceof java.net.UnknownHostException) {
+            ex = new ResponseThrowable(e, ERROR.NO_NET_ERROR);
+            ex.message = "网络未连接";
+            return ex;
         } else {
             ex = new ResponseThrowable(e, ERROR.UNKNOWN);
             ex.message = "未知错误";
@@ -99,6 +109,16 @@ public class ExceptionHandle {
          * 证书出错
          */
         public static final int SSL_ERROR = 1005;
+
+        /**
+         * Api错误
+         */
+        public static final int API_ERROR = 1006;
+
+        /**
+         * 未连接网络错误
+         */
+        public static final int NO_NET_ERROR = 1007;
     }
 
     public static class ResponseThrowable extends Exception {

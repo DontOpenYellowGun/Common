@@ -96,6 +96,7 @@ public class LoginViewModel {
 
                     @Override
                     protected void onError(ExceptionHandle.ResponseThrowable responseThrowable) {
+                        ToastUtil.INSTANCE.toast(responseThrowable.message);
                         viewStyle.isShowProgress.set(false);
                     }
                 });
