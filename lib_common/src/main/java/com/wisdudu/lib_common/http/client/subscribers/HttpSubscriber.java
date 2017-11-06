@@ -28,6 +28,7 @@ public abstract class HttpSubscriber<T> implements Observer<T> {
         if (!NetUtil.INSTANCE.isConnected()) {
             if (!disposable.isDisposed()) {
                 onError(ExceptionHandle.handleException(new NetException("网络未连接")));
+                disposable.dispose();
             }
         }
     }
@@ -48,7 +49,6 @@ public abstract class HttpSubscriber<T> implements Observer<T> {
             onError(new ExceptionHandle.ResponseThrowable(e, ExceptionHandle.ERROR.UNKNOWN));
             Logger.d(new ExceptionHandle.ResponseThrowable(e, ExceptionHandle.ERROR.UNKNOWN));
         }
-        disposable.dispose();
     }
 
     @Override
