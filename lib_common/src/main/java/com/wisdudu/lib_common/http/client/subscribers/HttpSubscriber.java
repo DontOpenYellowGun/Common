@@ -53,7 +53,6 @@ public abstract class HttpSubscriber<T> implements Observer<T> {
 
     @Override
     public void onComplete() {
-        Logger.d("HttpSubscriber:onComplete");
     }
 
     protected abstract void onSuccess(@NonNull T t);

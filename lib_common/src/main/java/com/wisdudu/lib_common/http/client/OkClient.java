@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -30,6 +31,8 @@ public enum OkClient {
 
     private final OkHttpClient okHttpClient;
 
+    private static final String TAG = "OkClient";
+
     OkClient() {
 
         short HTTP_CONNECT_TIMEOUT = 10;
@@ -42,7 +45,8 @@ public enum OkClient {
                 .readTimeout(HTTP_READ_TIMEOUT, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .addInterceptor(getHttpLoggingInterceptor())
-                .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+                .addInterceptor(getCacheInterceptor())
+                .addNetworkInterceptor(getCacheInterceptor())
                 .cache(configCache())
                 .build();
     }
@@ -55,7 +59,7 @@ public enum OkClient {
      */
     @NonNull
     private Cache configCache() {
-        File httpCacheDirectory = new File(BaseApplication.getInstance().getCacheDir(), "HttpCache");
+        File httpCacheDirectory = new File(BaseApplication.getInstance().getCacheDir(), "http-cache");
         int cacheSize = 10 * 1024 * 1024;
         return new Cache(httpCacheDirectory, cacheSize);
     }
@@ -73,41 +77,34 @@ public enum OkClient {
         return interceptor;
     }
 
-    //缓存拦截器，不同接口不同缓存
-//     Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
-//        @Override
-//        public Response intercept(Chain chain) throws IOException {
-//
-//            Request request = chain.request();
-//            Response response = chain.proceed(request);
-//
-//            if (NetworkUtil.getInstance().isConnected()) {
-//                String cacheControl =request.cacheControl().toString();
-//                return response.newBuilder()
-//                        .removeHeader("Pragma")//清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
-//                        .header("Cache-Control", cacheControl)
-//                        .build();
-//            }
-//            return response;
-//        }
-//    };
+    public static Interceptor getCacheInterceptor() {
+        return new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
 
-    //缓存拦截器，统一缓存60s
-    Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
-        @Override
-        public Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+                if (!NetUtil.INSTANCE.isConnected()) {
+                    request = request.newBuilder()
+                            .cacheControl(CacheControl.FORCE_CACHE)
+                            .build();
+                }
 
-            Request request = chain.request();
-            Response response = chain.proceed(request);
-
-            if (NetUtil.INSTANCE.isConnected()) {
-                int maxAge = 60 * 60 * 24 * 2;//缓存失效时间，单位为秒
-                return response.newBuilder()
-                        .removeHeader("Pragma")//清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
-                        .header("Cache-Control", "public ,max-age=" + maxAge)
-                        .build();
+                Response originalResponse = chain.proceed(request);
+                if (NetUtil.INSTANCE.isConnected()) {
+                    //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
+                    String cacheControl = request.cacheControl().toString();
+                    return originalResponse.newBuilder()
+                            .header("Cache-Control", cacheControl)
+                            .removeHeader("Pragma")
+                            .build();
+                } else {
+                    return originalResponse.newBuilder()
+                            .header("Cache-Control", "public, only-if-cached")
+                            .removeHeader("Pragma")
+                            .build();
+                }
             }
-            return response;
-        }
-    };
+        };
+
+    }
 }

@@ -11,27 +11,20 @@ import com.kelin.mvvmlight.command.ReplyItemCommand;
 import com.weavey.loading.lib.LoadingLayout;
 import com.wisdudu.lib_common.base.BaseFragment;
 import com.wisdudu.lib_common.base.BaseListViewModel;
-import com.wisdudu.lib_common.http.UserRemoteDataSource;
 import com.wisdudu.lib_common.http.client.subscribers.HttpSubscriber;
 import com.wisdudu.lib_common.http.client.subscribers.exception.ExceptionHandle;
-import com.wisdudu.lib_common.http.client.subscribers.func.Abs;
 import com.wisdudu.lib_common.util.ToastUtil;
 import com.wisdudu.module_main_nav.BR;
 import com.wisdudu.module_main_nav.R;
 import com.wisdudu.module_main_nav.api.TestRemoteDataSource;
-import com.wisdudu.module_main_nav.api.TestService;
 import com.wisdudu.module_main_nav.model.Brand;
-import com.wisdudu.module_main_nav.model.Music;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.BiConsumer;
-import io.reactivex.schedulers.Schedulers;
+
+import static com.wisdudu.lib_common.http.client.subscribers.exception.ExceptionHandle.ERROR.NO_NET_ERROR;
 
 /**
  * 文件描述：电影列表ViewModel
@@ -127,12 +120,12 @@ public class MusicListViewModel implements BaseListViewModel {
                     @Override
                     protected void onSuccess(List<Brand> models) {
                         if (viewStyle.isRefreshing.get()) {
-                            viewStyle.isRefreshing.set(false);
                             items.clear();
-                        } else {
-                            viewStyle.isLoadingMore.set(false);
                         }
                         items.addAll(models);
+
+                        viewStyle.isRefreshing.set(false);
+                        viewStyle.isLoadingMore.set(false);
                         viewStyle.pageState.set(items.size() > 0 ? LoadingLayout.Success : LoadingLayout.Empty);
                     }
 
@@ -140,8 +133,13 @@ public class MusicListViewModel implements BaseListViewModel {
                     protected void onError(ExceptionHandle.ResponseThrowable responseThrowable) {
                         viewStyle.isRefreshing.set(false);
                         viewStyle.isLoadingMore.set(false);
-                        viewStyle.errorMsg.set(responseThrowable.message);
-                        viewStyle.pageState.set(LoadingLayout.Error);
+                        if (items.size() > 0) {
+                            viewStyle.pageState.set(LoadingLayout.Success);
+                            ToastUtil.INSTANCE.toast(responseThrowable.message);
+                        } else {
+                            viewStyle.pageState.set(responseThrowable.code==NO_NET_ERROR?LoadingLayout.No_Network:LoadingLayout.Error);
+                            viewStyle.errorMsg.set(responseThrowable.message);
+                        }
                     }
                 });
     }
