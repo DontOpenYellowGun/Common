@@ -2,20 +2,22 @@
 
 buildscript {
     repositories {
+        google()
         jcenter()
+
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$localGradlePluginVersion"
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.1'
         classpath 'com.antfortune.freeline:gradle:0.8.7'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
-        mavenCentral()
-        maven { url 'https://maven.google.com' }
+
     }
 }
 
